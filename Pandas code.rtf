@@ -1,0 +1,103 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2636
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red191\green100\blue38;\red32\green32\blue32;\red153\green168\blue186;
+\red88\green118\blue71;\red117\green114\blue185;\red86\green132\blue173;\red152\green54\blue29;}
+{\*\expandedcolortbl;;\csgenericrgb\c74902\c39216\c14902;\csgenericrgb\c12549\c12549\c12549;\csgenericrgb\c60000\c65882\c72941;
+\csgenericrgb\c34510\c46275\c27843;\csgenericrgb\c45882\c44706\c72549;\csgenericrgb\c33725\c51765\c67843;\csgenericrgb\c59608\c21176\c11373;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf2 \cb3 import \cf4 pandas \cf2 as \cf4 pd\
+\
+input_file = \cf5 "Zara-data.xlsx"\
+\cf4 df = pd.read_excel(input_file)\
+\cf6 print\cf4 (df)\
+\
+zara_dic = \{\}\
+my_list_name = []\
+my_list_sku = []\
+my_list_mpn = []\
+my_list_brand = []\
+my_list_description = []\
+my_list_price = []\
+my_list_currency = []\
+my_list_availability = []\
+my_list_condition = []\
+my_list_color = []\
+my_list_size_list = []\
+\cf2 for \cf4 index\cf2 , \cf4 row \cf2 in \cf4 df.iterrows():\
+    value = row[\cf5 "Name"\cf4 ].split(\cf5 ':'\cf4 )[\cf7 1\cf4 ].replace(\cf5 '"'\cf2 , \cf5 ''\cf4 )\
+    my_list_name.append(value)\
+    value = row[\cf5 "SKU"\cf4 ].split(\cf5 ':'\cf4 )[\cf7 1\cf4 ].replace(\cf5 '"'\cf2 , \cf5 ''\cf4 )\
+    my_list_sku.append(value)\
+    value = row[\cf5 "MPN"\cf4 ].split(\cf5 ':'\cf4 )[\cf7 1\cf4 ].replace(\cf5 '"'\cf2 , \cf5 ''\cf4 )\
+    my_list_mpn.append(value)\
+    value = row[\cf5 "Brand"\cf4 ].split(\cf5 ':'\cf4 )[\cf7 1\cf4 ].replace(\cf5 '"'\cf2 , \cf5 ''\cf4 )\
+    my_list_brand.append(value)\
+    value = row[\cf5 "Description"\cf4 ].split(\cf5 ':'\cf4 )[\cf7 1\cf4 ].replace(\cf5 '"'\cf2 , \cf5 ''\cf4 )\
+    my_list_description.append(value)\
+    value_list = row[\cf5 "Price"\cf4 ].split(\cf5 ':'\cf4 )\
+    \cf2 if \cf6 len\cf4 (value_list) > \cf7 1\cf4 :\
+        value = value_list[\cf7 1\cf4 ].replace(\cf5 '"'\cf2 , \cf5 ''\cf4 )\
+    \cf2 else\cf4 :\
+        value = value_list[\cf7 0\cf4 ].replace(\cf5 '"'\cf2 , \cf5 ''\cf4 )\
+    my_list_price.append(value)\
+\
+    value_list = row[\cf5 "Currency"\cf4 ].split(\cf5 ':'\cf4 )\
+    \cf2 if \cf6 len\cf4 (value_list) > \cf7 1\cf4 :\
+        value = value_list[\cf7 1\cf4 ].replace(\cf5 '"'\cf2 , \cf5 ''\cf4 )\
+    \cf2 else\cf4 :\
+        value = value_list[\cf7 0\cf4 ].replace(\cf5 '"'\cf2 , \cf5 ''\cf4 )\
+    my_list_currency.append(value)\
+\
+    value_list = row[\cf5 "Availability"\cf4 ].split(\cf5 ':'\cf4 )\
+    \cf2 if \cf6 len\cf4 (value_list) > \cf7 1\cf4 :\
+        value = value_list[\cf7 1\cf4 ].replace(\cf5 '"'\cf2 , \cf5 ''\cf4 )\
+    \cf2 else\cf4 :\
+        value = value_list[\cf7 0\cf4 ].replace(\cf5 '"'\cf2 , \cf5 ''\cf4 )\
+    my_list_availability.append(value)\
+\
+    value_list = row[\cf5 "Condition"\cf4 ].split(\cf5 ':'\cf4 )\
+    \cf2 if \cf6 len\cf4 (value_list) > \cf7 1\cf4 :\
+        value = value_list[\cf7 1\cf4 ].replace(\cf5 '"'\cf2 , \cf5 ''\cf4 )\
+    \cf2 else\cf4 :\
+        value = value_list[\cf7 0\cf4 ].replace(\cf5 '"'\cf2 , \cf5 ''\cf4 )\
+    my_list_condition.append(value)\
+\
+    value_list = row[\cf5 "Color"\cf4 ].split(\cf5 ':'\cf4 )\
+    \cf2 if \cf6 len\cf4 (value_list) > \cf7 1\cf4 :\
+        value = value_list[\cf7 1\cf4 ].replace(\cf5 '"'\cf2 , \cf5 ''\cf4 )\
+    \cf2 else\cf4 :\
+        value = value_list[\cf7 0\cf4 ].replace(\cf5 '"'\cf2 , \cf5 ''\cf4 )\
+    my_list_color.append(value)\
+\
+    value_list = row[\cf5 "Size list"\cf4 ].split(\cf5 ':'\cf4 )\
+    \cf2 if \cf6 len\cf4 (value_list) > \cf7 1\cf4 :\
+        value = value_list[\cf7 1\cf4 ].replace(\cf5 '"'\cf2 , \cf5 ''\cf4 )\
+    \cf2 else\cf4 :\
+        value = value_list[\cf7 0\cf4 ].replace(\cf5 '"'\cf2 , \cf5 ''\cf4 )\
+    my_list_size_list.append(value)\
+\
+\
+zara_dic[\cf5 "Name"\cf4 ] = my_list_name\
+zara_dic[\cf5 "SKU"\cf4 ] = my_list_sku\
+zara_dic[\cf5 "MPN"\cf4 ] = my_list_mpn\
+zara_dic[\cf5 "Brand"\cf4 ] = my_list_brand\
+zara_dic[\cf5 "Description"\cf4 ] = my_list_description\
+zara_dic[\cf5 "Price"\cf4 ] = my_list_price\
+zara_dic[\cf5 "Currency"\cf4 ] = my_list_currency\
+zara_dic[\cf5 "Availability"\cf4 ] = my_list_availability\
+zara_dic[\cf5 "Condition"\cf4 ] = my_list_condition\
+zara_dic[\cf5 "Color"\cf4 ] = my_list_color\
+zara_dic[\cf5 "Size list"\cf4 ] = my_list_size_list\
+\
+df = pd.DataFrame(zara_dic)\
+\cf6 print\cf4 (df)\
+\
+df.to_excel(\cf5 'zara.xlsx'\cf2 , \cf8 index\cf4 =\cf2 False, \cf8 header\cf4 =\cf2 True\cf4 )\
+\
+\
+\cf6 print\cf4 ()\
+\cf6 print\cf4 (zara_dic)\
+\cf6 print\cf4 ()\
+}
